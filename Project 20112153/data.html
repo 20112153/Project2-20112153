@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>David Konkol</title>
+</head>
+<!-- Body stolen from my previous website project -->
+<body>
+  <div id="container">
+    <header>
+      <h1>Gym</h1>
+      <p id="tagline">Project 1 David Konkol</p>
+    </header>
+
+    <section id="content">
+      <nav>
+        <ul>
+          <li><a href="about.html">Welcome</a></li>
+          <li><a href="index.html">Index</a></li>
+          <li><a href="data.html">Data</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <h2>Gym</h2>
+        <p>My other and more productive hobby is going to the Gym!</p>
+        <br>
+        <p>My favorite exercises are</p>
+        <ol type="1">
+          <li>Bench Press</li>
+          <li>Pullups</li>
+          <li>Preacher Curl</li>
+        </ol>
+        <p>I have been going since I was 16 and have been in many gyms but the two pictured below are my favorite!</p>
+        <img src="images/xtreme.jpg" width="300" height="300" alt="A picture of XTREME Gym Waterford" class="feature">
+        <img src="images/ormonde.jpg" width="200" height="200" alt="A picture with a quote from Ormonde Leisure Club" class="feature">
+
+
+
+
+        <!-- Beginning of exercise app section and new JS features -->
+        <section class="exercise-app">
+          <h2>Exercise Tracker</h2>
+          <div class="exercise-controls">
+            <div>
+              <!--Selection and option values -->
+                <label for="difficulty-search">Filter by Difficulty</label>
+              <select id="difficulty-search">
+                <option value="">All</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+            <button id="sort-rating" class="action-btn">Sort by Rating: High → Low</button>
+          </div>
+<!-- Populate form with parameters and condtionals -->
+          <form id="exercise-form" class="exercise-form">
+            <div class="input-grid">
+              <label>
+                Exercise
+                <input id="exercise-name" type="text" required>
+              </label>
+              <label>
+                Rating
+                <input id="exercise-rating" type="number" min="1" max="10" required>
+              </label>
+              <label>
+                Weight
+                <input id="exercise-weight" type="number" min="0" required>
+              </label>
+              <label>
+                Reps
+                <input id="exercise-reps" type="number" min="1" required>
+              </label>
+              <label>
+                Sets
+                <input id="exercise-sets" type="number" min="1" required>
+              </label>
+              <label>
+                Difficulty
+                <input id="exercise-difficulty" type="text" required>
+              </label>
+            </div>
+            <button type="submit" class="action-btn">Add Exercise</button>
+          </form>
+
+          <div id="exercise-table-container"></div>
+        </section>
+      </main>
+    </section>
+  </div>
+<!-- Script ids and table -->
+  <script id="exercise-template" type="text/x-handlebars-template">
+    <table class="exercise-table">
+      <!-- Organising table -->
+        <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Rating</th>
+          <th>Weight</th>
+          <th>Reps</th>
+          <th>Sets</th>
+          <th>Difficulty</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each exercises}}
+          <tr class="{{#if isNewest}}highlighted{{/if}}">
+            <td>{{exercise}}</td>
+            <td>{{rating}}</td>
+            <td>{{weight}}</td>
+            <td>{{reps}}</td>
+            <td>{{sets}}</td>
+            <td>{{difficulty}}</td>
+            <td><button class="remove-btn" data-id="{{id}}">Remove</button></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+<!--Call on external handlebars script and my local script -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+  <script src="js/data.js"></script>
+</body>
+</html>

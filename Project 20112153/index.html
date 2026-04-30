@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.4/semantic.min.css">
+  <link rel="stylesheet" href = "css/styles.css">
+  <title>David Konkol</title>
+  <!-- Reused old project -->
+  <style>
+    .toggle-heading { cursor: pointer; }
+    .toggle-icon { font-size: 0.85em; color: gray; margin-left: 8px; }
+  </style>
+  <header>
+    <p id="welcome-message" style="font-style: italic; color: #00cc7e; font-weight: bold;"></p>
+    <h1>About</h1>
+    <p id="tagline">Project 2 David Konkol</p>
+    </header>
+    <section class="ui grid stackable container">
+    <nav class="ui stretched grid row">
+       <ul>
+          <li><a href="about.html">Welcome</a></li>
+          <li><a href="index.html">Index</a></li>
+          <li><a href="data.html">Data</a></li>
+        </ul>
+    </nav>
+    <!-- About both sections with classes declared as toggles -->
+<main>
+    <h2 class="toggle-heading">About <span class="toggle-icon">[hide]</span></h2>
+    <div class="toggle-content">
+      <p>This website is a continuation of my previous project now with more and fancier javascript.</p>
+    <p>I am a 19 year old software systems student at SETU in my second semester of website development and this is my second final project!</p>
+      <br>
+    </div>
+
+    <h2 class="toggle-heading">Information about the dataset<span class="toggle-icon">[hide]</span></h2>
+    <div class="toggle-content">
+      <p>The dataset is simply exercises that i either know of or do personally along with my personal (objectively correct) opinions ratings and weights for each. It has 6 parameters and is a fully functional mini app with full range JS to cover everything you might want to do with it combining all that i have learned in this semester!</p>
+      <p>Additionally for my 3rd party script i have used JQuery as we have already used it a small bit in the past</p>
+      <p>As a challenge you can try find the section of the webpage its used on</p>
+    </div>
+
+<div class="ui container">
+
+</div>
+
+<!-- Calling third party scripts -->
+<script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.4/semantic.min.js"></script>
+
+
+
+
+<!--Comment section -->
+
+<h2>Leave a Comment</h2>
+<!-- Form id -->
+<form id="comment-form" class="ui form">
+  <div class="field">
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Your name" required>
+  </div>
+  <div class="field">
+    <label>Comment</label>
+    <textarea id="comment" placeholder="Your comment..." required></textarea>
+  </div>
+  <button class="ui button primary" type="submit">Submit</button>
+</form>
+
+<h3>Comments</h3>
+<div id="comments-container"></div>
+
+<!-- Handlebars template -->
+<script id="comment-template" type="text/x-handlebars-template">
+  {{#each comments}}
+    <div class="ui segment">
+      <strong>{{name}}</strong>
+      <p>{{text}}</p>
+    </div>
+  {{/each}}
+</script>
+
+<!-- Handlebars  -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+</main>
+</section>
+</div>
+<!-- jQuery  CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<!-- jQuery JS -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<!-- Simple text size slider div -->
+<h3>Adjust Text Size</h3>
+<div id="text-slider"></div>
+   <!-- Calling my local scripts -->
+<script src="js/index.js"></script>
+   <script src="js/welcome.js"></script>
+
+</body>
+</html>
