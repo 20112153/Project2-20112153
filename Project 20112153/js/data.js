@@ -47,9 +47,9 @@ function getFilteredAndSortedExercises() {
 }
 
 function renderExercises() {
-  const source = document.getElementById('exercise-table-template').innerHTML;
+  const source = document.getElementById('exercise-template').innerHTML;
   const template = Handlebars.compile(source);
-  const html = template({ items: getFilteredAndSortedExercises(), sortAscending });
+  const html = template({ exercises: getFilteredAndSortedExercises() });
   document.getElementById('exercise-table-container').innerHTML = html;
 }
 
@@ -105,34 +105,23 @@ function removeExercise(id) {
 function setupHandlers() {
   const form = document.getElementById('exercise-form');
   const searchInput = document.getElementById('difficulty-search');
-  const searchButton = document.getElementById('search-button');
-  const resetButton = document.getElementById('reset-search');
-  const sortButton = document.getElementById('sort-button');
+  const sortButton = document.getElementById('sort-rating');
   const tableContainer = document.getElementById('exercise-table-container');
 
   form.addEventListener('submit', addExercise);
-  searchInput.addEventListener('input', function(event) {
+  searchInput.addEventListener('change', function(event) {
     searchDifficulty = event.target.value;
-    renderExercises();
-  });
-  searchButton.addEventListener('click', function() {
-    searchDifficulty = searchInput.value;
-    renderExercises();
-  });
-  resetButton.addEventListener('click', function() {
-    searchDifficulty = '';
-    searchInput.value = '';
     renderExercises();
   });
 
   sortButton.addEventListener('click', function() {
     sortAscending = !sortAscending;
-    sortButton.textContent = sortAscending ? 'Sort by rating ↑' : 'Sort by rating ↓';
+    sortButton.textContent = sortAscending ? 'Sort by Rating: Low → High' : 'Sort by Rating: High → Low';
     renderExercises();
   });
 
   tableContainer.addEventListener('click', function(event) {
-    if (event.target.matches('.remove-exercise')) {
+    if (event.target.matches('.remove-btn')) {
       const id = Number(event.target.dataset.id);
       removeExercise(id);
     }

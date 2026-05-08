@@ -60,27 +60,27 @@
             <div class="input-grid">
               <label>
                 Exercise
-                <input id="exercise-name" type="text" required>
+                <input id="exercise-name" name="exercise" type="text" required>
               </label>
               <label>
                 Rating
-                <input id="exercise-rating" type="number" min="1" max="10" required>
+                <input id="exercise-rating" name="rating" type="number" min="1" max="10" required>
               </label>
               <label>
                 Weight
-                <input id="exercise-weight" type="number" min="0" required>
+                <input id="exercise-weight" name="weight" type="number" min="0" required>
               </label>
               <label>
                 Reps
-                <input id="exercise-reps" type="number" min="1" required>
+                <input id="exercise-reps" name="reps" type="number" min="1" required>
               </label>
               <label>
                 Sets
-                <input id="exercise-sets" type="number" min="1" required>
+                <input id="exercise-sets" name="sets" type="number" min="1" required>
               </label>
               <label>
                 Difficulty
-                <input id="exercise-difficulty" type="text" required>
+                <input id="exercise-difficulty" name="difficulty" type="text" required>
               </label>
             </div>
             <button type="submit" class="action-btn">Add Exercise</button>
@@ -91,6 +91,7 @@
       </main>
     </section>
   </div>
+
 <!-- Script ids and table -->
   <script id="exercise-template" type="text/x-handlebars-template">
     <table class="exercise-table">
@@ -115,7 +116,7 @@
             <td>{{reps}}</td>
             <td>{{sets}}</td>
             <td>{{difficulty}}</td>
-            <td><button class="remove-btn" data-id="{{id}}">Remove</button></td>
+            <td><button type="button" class="remove-btn" data-id="{{id}}">Remove</button></td>
           </tr>
         {{/each}}
       </tbody>
